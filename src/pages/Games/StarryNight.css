@@ -1,0 +1,83 @@
+.starry-game {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 100%);
+  padding: 2rem;
+  text-align: center;
+}
+
+.starry-game h1 {
+  font-family: "Galada", cursive;
+  font-size: 2.5rem;
+  color: #ffd700;
+  margin-bottom: 0.5rem;
+}
+
+.instruction {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+}
+
+.star-canvas {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle at center, #1a1a3e 0%, #0a0a1a 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  overflow: hidden;
+}
+
+.star-canvas svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s, filter 0.2s;
+  transform: translate(-50%, -50%);
+}
+
+.star:hover {
+  transform: translate(-50%, -50%) scale(1.5);
+  filter: drop-shadow(0 0 10px #ffd700);
+}
+
+.constellation-message {
+  margin-top: 1.5rem;
+  padding: 1rem 2rem;
+  background: rgba(255, 215, 0, 0.2);
+  border-radius: 50px;
+  color: #ffd700;
+  font-size: 1.2rem;
+  font-family: "Galada", cursive;
+}
+
+.reset-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.reset-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.back-link {
+  margin-top: 2rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+}

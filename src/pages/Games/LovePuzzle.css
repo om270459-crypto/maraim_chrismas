@@ -1,0 +1,92 @@
+.puzzle-game {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 2rem;
+  text-align: center;
+}
+
+.puzzle-game h1 {
+  font-family: "Galada", cursive;
+  font-size: 2.5rem;
+  color: #ff6b9d;
+  margin-bottom: 0.5rem;
+}
+
+.instruction {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+}
+
+.stats {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.puzzle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  gap: 5px;
+}
+
+.puzzle-piece {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.puzzle-piece:hover {
+  transform: scale(1.05);
+}
+
+.puzzle-piece.selected {
+  box-shadow: 0 0 0 4px #ffd700;
+  transform: scale(1.1);
+}
+
+.win-message {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 20px;
+  margin: 2rem 0;
+}
+
+.win-message h2 {
+  color: #ffd700;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.win-message p {
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.back-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+.back-link {
+  margin-top: 2rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+}

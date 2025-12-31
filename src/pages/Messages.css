@@ -1,0 +1,104 @@
+.messages-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d1b4e 50%, #0f3460 100%);
+  padding: 2rem;
+}
+
+.messages-container {
+  text-align: center;
+  max-width: 500px;
+}
+
+.envelope {
+  margin-bottom: 1.5rem;
+  perspective: 1000px;
+}
+
+.envelope-icon {
+  font-size: 5rem;
+  display: inline-block;
+  filter: drop-shadow(0 10px 30px rgba(255, 107, 157, 0.4));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.messages-title {
+  font-family: "Galada", cursive;
+  font-size: 3rem;
+  color: #ffd700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+.messages-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.message-preview {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid #ff6b9d;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 10px 10px 0;
+}
+
+.message-preview p {
+  color: rgba(255, 255, 255, 0.9);
+  font-style: italic;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.messages-start-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 20px rgba(255, 107, 157, 0.4);
+}
+
+.messages-start-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 40px rgba(255, 107, 157, 0.6);
+}
+
+.btn-heart {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.message-count {
+  margin-top: 2rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+}

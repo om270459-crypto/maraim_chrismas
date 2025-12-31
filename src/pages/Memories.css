@@ -1,0 +1,402 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+.memories-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  padding: 6rem 2rem 2rem 2rem;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated background particles */
+.memories-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      2px 2px at 20px 30px,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    ),
+    radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.4), transparent),
+    radial-gradient(
+      2px 2px at 130px 80px,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    ),
+    radial-gradient(
+      1px 1px at 160px 120px,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+  background-size: 200px 200px;
+  animation: sparkle-bg 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes sparkle-bg {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.memories-container {
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+}
+
+.memories-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff6b9d 0%, #c44569 40%, #ff9a9e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.memories-title i {
+  margin-right: 0.75rem;
+  -webkit-text-fill-color: #ff6b9d;
+  filter: drop-shadow(0 0 20px rgba(255, 107, 157, 0.6));
+  animation: heart-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes heart-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.memories-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 2.5rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.memories-timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Memory Item Cards - using unique prefix to avoid conflicts */
+.memories-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.75rem;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  position: relative;
+}
+
+.memories-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(255, 107, 157, 0.2),
+    0 0 60px rgba(255, 107, 157, 0.1);
+  border-color: rgba(255, 107, 157, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.memories-item-icon {
+  font-size: 2rem;
+  color: #ff6b9d;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 157, 0.2) 0%,
+    rgba(196, 69, 105, 0.15) 100%
+  );
+  border-radius: 50%;
+  box-shadow: 0 8px 32px rgba(255, 107, 157, 0.2);
+  transition: all 0.4s ease;
+  flex-shrink: 0;
+}
+
+.memories-item:hover .memories-item-icon {
+  transform: scale(1.1);
+  box-shadow: 0 12px 40px rgba(255, 107, 157, 0.4);
+}
+
+.memories-item-info {
+  text-align: center;
+}
+
+.memories-item-date {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 107, 157, 0.9);
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: block;
+}
+
+.memories-item-title {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Modal */
+.memory-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.memory-modal {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 1px solid rgba(255, 107, 157, 0.3);
+  border-radius: 30px;
+  padding: 3rem;
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5),
+    0 0 100px rgba(255, 107, 157, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.memory-modal::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 107, 157, 0.1) 0%,
+    transparent 50%
+  );
+  animation: modal-glow 6s ease-in-out infinite;
+}
+
+@keyframes modal-glow {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10%, 10%);
+  }
+}
+
+.modal-icon {
+  font-size: 4rem;
+  color: #ff6b9d;
+  display: block;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 0 30px rgba(255, 107, 157, 0.5));
+}
+
+.memory-modal h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff6b9d 0%, #ff9a9e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.modal-date {
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+.modal-description {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+.close-btn {
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 10px 40px rgba(255, 107, 157, 0.3);
+}
+
+.close-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 50px rgba(255, 107, 157, 0.5);
+}
+
+.close-btn i {
+  margin-left: 0.5rem;
+}
+
+.add-memory {
+  margin-top: 2.5rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.add-memory i {
+  color: #ffd700;
+  margin: 0 0.5rem;
+  animation: star-twinkle 2s ease-in-out infinite;
+}
+
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .memories-page {
+    padding: 5rem 1.5rem 2rem 1.5rem;
+  }
+
+  .memories-title {
+    font-size: 2.25rem;
+  }
+
+  .memories-item {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .memories-item-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.6rem;
+  }
+
+  .memories-item-title {
+    font-size: 1rem;
+  }
+
+  .memory-modal {
+    padding: 2rem;
+    margin: 1rem;
+  }
+
+  .memory-modal h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .memories-page {
+    padding: 5rem 1rem 1.5rem 1rem;
+  }
+
+  .memories-title {
+    font-size: 1.75rem;
+  }
+
+  .memories-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+
+  .memories-item {
+    padding: 1rem 1.25rem;
+    border-radius: 16px;
+  }
+
+  .memories-item-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 1.4rem;
+  }
+
+  .memories-item-title {
+    font-size: 0.95rem;
+  }
+
+  .memories-item-date {
+    font-size: 0.7rem;
+  }
+}

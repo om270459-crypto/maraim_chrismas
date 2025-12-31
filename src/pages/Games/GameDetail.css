@@ -1,0 +1,92 @@
+.game-detail {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  padding: 2rem;
+}
+
+.game-container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 3rem;
+  max-width: 500px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.game-icon-large {
+  font-size: 5rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.game-title {
+  font-family: "Galada", cursive;
+  font-size: 2.5rem;
+  color: #ffd700;
+  margin-bottom: 1rem;
+}
+
+.game-description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.game-score {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.game-play-btn {
+  padding: 1rem 2.5rem;
+  font-size: 1.25rem;
+  background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-play-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+}
+
+.game-complete h2 {
+  font-size: 2rem;
+  color: #ffd700;
+  margin-bottom: 1rem;
+}
+
+.game-complete p {
+  color: white;
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.back-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #ffd700;
+  color: #1a1a2e;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+.game-back-link {
+  display: block;
+  margin-top: 2rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+}
+
+.game-back-link:hover {
+  color: white;
+}

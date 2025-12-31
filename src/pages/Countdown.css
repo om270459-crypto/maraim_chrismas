@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Galada&family=Montserrat:wght@100..900&display=swap");
+
+/* Glassmorphism Flip Clock Styles */
+:root {
+  --glass-surface: rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.25);
+  --glass-glow: rgba(180, 230, 255, 0.35);
+  --digit-text: #eaf6ff;
+  --digit-glow: rgba(160, 215, 255, 0.6);
+  --depth-shadow: rgba(0, 40, 90, 0.45);
+  --accent-pink: #ff6b9d;
+  --accent-gold: #ffd700;
+  --countdown-width: 100px;
+  --countdown-height: 130px;
+}
+
+.countdown-page {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(180deg, #1a1a3e 0%, #0a0a1a 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  gap: 2rem;
+}
+
+.countdown-header h1 {
+  font-family: "Galada", cursive;
+  font-size: 2.5rem;
+  color: white;
+  text-align: center;
+  text-shadow: 0 0 20px var(--digit-glow);
+}
+
+.countdown-header h1 i {
+  color: var(--accent-pink);
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.countdown-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  perspective: 1000px;
+}
+
+.countdown-segment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.countdown-card {
+  position: relative;
+  width: var(--countdown-width);
+  height: var(--countdown-height);
+  perspective: 1000px;
+  border-radius: 12px;
+  box-shadow: 0 20px 45px var(--depth-shadow);
+}
+
+.top,
+.bottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+  background-color: var(--glass-surface);
+  color: var(--digit-text);
+  font-family: "Montserrat", sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border-left: 1px solid var(--glass-border);
+  border-right: 1px solid var(--glass-border);
+  text-shadow: 0 0 20px var(--digit-glow);
+  display: flex;
+  justify-content: center;
+  box-shadow: inset 0 0 20px var(--glass-glow);
+}
+
+.top {
+  top: 0;
+  border-radius: 12px 12px 0 0;
+  border-top: 1px solid var(--glass-border);
+  align-items: flex-end;
+}
+
+.bottom {
+  bottom: 0;
+  border-radius: 0 0 12px 12px;
+  border-bottom: 1px solid var(--glass-border);
+  align-items: flex-start;
+}
+
+.top span {
+  transform: translateY(50%);
+}
+
+.bottom span {
+  transform: translateY(-50%);
+}
+
+.countdown-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--digit-text);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px var(--digit-glow);
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.countdown-label i {
+  color: var(--accent-gold);
+}
+
+.countdown-separator {
+  font-family: "Montserrat", sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--digit-text);
+  text-shadow: 0 0 20px var(--digit-glow);
+  margin-top: -30px;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.countdown-footer h2 {
+  font-family: "Galada", cursive;
+  font-size: 2rem;
+  color: var(--accent-gold);
+  text-align: center;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.3);
+}
+
+.countdown-footer h2 i {
+  color: var(--accent-pink);
+  animation: infinitySpin 4s linear infinite;
+}
+
+@keyframes infinitySpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+  .countdown-wrapper {
+    transform: scale(0.7);
+  }
+
+  .countdown-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .countdown-footer h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .countdown-wrapper {
+    transform: scale(0.5);
+  }
+
+  .countdown-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .countdown-footer h2 {
+    font-size: 1.2rem;
+  }
+}
